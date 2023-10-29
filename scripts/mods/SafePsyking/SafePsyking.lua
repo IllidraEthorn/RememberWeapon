@@ -74,30 +74,38 @@ end
 
 mod:hook(CLASS.ActionHandler, "_validate_action", function(func, self, action_settings, condition_func_params, t, used_input)
     local val = func(self, action_settings, condition_func_params, t, used_input)
-    local unit_data_extension = self._unit_data_extension
-    local inventory_slot_component = unit_data_extension:read_component(self._inventory_component.wielded_slot)
-
-
-    local warp_charge_component = unit_data_extension:read_component("warp_charge")
-    local warp_charge_level = warp_charge_component.current_percentage
-    local overheat_level = inventory_slot_component.overheat_current_percentage
-    
 
     if action_settings.charge_template then
+        local unit_data_extension = self._unit_data_extension
+
+
+        local warp_charge_component = unit_data_extension:read_component("warp_charge")
+        local warp_charge_level = warp_charge_component.current_percentage
+        local overheat_level = 0
+        local inventory_slot_component = unit_data_extension:read_component("slot_secondary")
+
+        if inventory_slot_component ~= nil and inventory_slot_component.overheat_current_percentage ~= nil then
+            
+            overheat_level = inventory_slot_component.overheat_current_percentage
+            --print("-----"..count.."-----")
+            --tprint(inventory_slot_component)
+        end
+
         count = count + 1
         mod.debug.echo("-----"..count.."-----")
 
         mod.debug.echo(action_settings.charge_template)
+        mod.debug.echo("Overheat: "..overheat_level.." Peril: "..warp_charge_level)
 
         if has_value(unsafe_at_100_percent_warp_charge_level_config, action_settings.charge_template) and not (warp_charge_level < 1) then
             mod.debug.echo("Cancel ACTION")
-            return
+            return false
         elseif has_value(unsafe_at_97_percent_warp_charge_level_config, action_settings.charge_template) and not (warp_charge_level < 0.97) then
             mod.debug.echo("Cancel ACTION")
-            return
+            return false
         elseif has_value(unsafe_at_100_percent_overheat_level_config, action_settings.charge_template) and not (overheat_level < 1) then
             mod.debug.echo("Cancel ACTION")
-            return 
+            return false
         end
     end
     return val
