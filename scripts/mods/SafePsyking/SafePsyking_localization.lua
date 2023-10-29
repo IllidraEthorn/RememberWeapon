@@ -8,7 +8,45 @@ return {
 	sp_psyker = {
 		en = Localize("loc_class_psyker_title"),
 	},
-	debug = {
+    safe_actions = {
+		en = "Safe Actions",
+	},
+    rapid_left_forcestaff_p1_m1_projectile = {
+		en = "Trauma Staff Basic Attack",
+	},
+    action_trigger_explosion_forcestaff_p1_m1_use_aoe = {
+		en = "Trauma Staff Charged Attack",
+	},
+    action_shoot_flame_forcestaff_p2_m1_flame_burst = {
+		en = "Purgatus Staff Basic Attack",
+	},
+    action_shoot_charged_flame_forcestaff_p2_m1_flamer_gas = {
+		en = "Purgatus Staff Charged Attack",
+	},
+    rapid_left_forcestaff_p3_m1_projectile = {
+		en = "Surge Staff Basic Attack",
+	},
+    action_shoot_charged_forcestaff_p3_m1_chain_lightning = {
+		en = "Surge Staff Charged Attack",
+	},
+    rapid_left_forcestaff_p4_m1_projectile = {
+		en = "Voidstrike Staff Basic Attack",
+	},
+    action_shoot_charged_forcestaff_p4_m1_charged_projectile = {
+		en = "Voidstrike Staff Charged Attack",
+	},
+    action_assail = {
+		en = "Assail",
+	},
+    action_brainburst = {
+		en = "Brain Burst & Brain Rupture",
+	},
+    action_shoot_charged_plasmagun_p1_m1_shoot_charged = {
+		en = "Plasma Gun Charged Shot",
+	},
+
+    --stole these from book_finder
+    debug = {
         en = "Debug",
         ja = "デバッグ",
         ["zh-cn"] = "调试",
