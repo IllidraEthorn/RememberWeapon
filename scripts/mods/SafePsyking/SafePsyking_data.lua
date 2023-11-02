@@ -11,6 +11,11 @@ return {
 				type = "group",
 				sub_widgets = {
 					{
+						setting_id = "override_if_shriek",
+						type = "checkbox",
+						default_value = false
+					},
+					{
 						setting_id = "rapid_left_forcestaff_p1_m1_projectile",
 						type = "checkbox",
 						default_value = true

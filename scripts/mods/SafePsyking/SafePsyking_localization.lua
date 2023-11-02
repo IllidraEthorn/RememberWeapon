@@ -44,7 +44,10 @@ return {
     action_shoot_charged_plasmagun_p1_m1_shoot_charged = {
 		en = "Plasma Gun Charged Shot",
 	},
-
+	override_if_shriek = {
+		en = "Allow Perils of the Warp to trigger if Shriek is off cooldown?",
+	},
+	
     --stole these from book_finder
     debug = {
         en = "Debug",
